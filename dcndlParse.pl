@@ -12,16 +12,14 @@ my $records = $data->{"ListRecords"}{"record"};
 foreach my $record (@$records) {
     my $dc = $record->{"metadata"}{"dcndl_simple:dc"};
     my $parsed = parse_dc($dc);
-    if (defined $parsed->{ISBN}[0] && defined $parsed->{"NDLC"}) {
-        print "title:\t",     $parsed->{"title"}, "\n";
-        print "creator:\t",   join "\t", @{$parsed->{"creator"}}, "\n";
-        print "publisher:\t", join "\t", @{$parsed->{"publisher"}}, "\n";
-        print "ISBN:\t",      join "\t", @{$parsed->{"ISBN"}}, "\n";
-        #print "price:\t",     $parsed->{"price"}, "\n";
-        print "NDLC:\t",      $parsed->{"NDLC"}, "\n";
-        print "NDC9:\t",      $parsed->{"NDC9"}, "\n";
-        print "\n";
-    }
+    print "title:\t",     $parsed->{"title"}, "\n";
+    print "creator:\t",   join "\t", @{$parsed->{"creator"}}, "\n";
+    print "publisher:\t", join "\t", @{$parsed->{"publisher"}}, "\n";
+    print "ISBN:\t",      join "\t", @{$parsed->{"ISBN"}}, "\n";
+    #print "price:\t",     $parsed->{"price"}, "\n";
+    print "NDLC:\t",      $parsed->{"NDLC"}, "\n";
+    print "NDC9:\t",      $parsed->{"NDC9"}, "\n";
+    print "\n";
 }
 
 sub parse_dc {
